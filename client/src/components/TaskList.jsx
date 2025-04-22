@@ -58,22 +58,21 @@ export default function TaskList({ projects }) {
           </SelectContent>
         </Select>
       </div>
-{/*       {loading && (
-        <div className="flex items-center justify-center min-h-[50vh]">
-          <p className="text-gray-500">Loading...</p>
-        </div>
-      )} */}
-      {tasks.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {tasks.map((task, index) => (
-            <TaskCard key={index} task={task} projects={projects} />
-          ))}
-        </div>
-      ) : (
-        <div className="flex items-center justify-center min-h-[50vh]">
-          <p className="text-gray-500">No tasks found.</p>
-        </div>
-      )}
+{loading ? (
+  <div className="flex items-center justify-center min-h-[50vh]">
+    <p className="text-gray-500">Loading tasks...</p>
+  </div>
+) : tasks.length > 0 ? (
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    {tasks.map(function (task, index) {
+      return <TaskCard key={index} task={task} projects={projects} />;
+    })}
+  </div>
+) : (
+  <div className="flex items-center justify-center min-h-[50vh]">
+    <p className="text-gray-500">No tasks found.</p>
+  </div>
+)}
     </>
   );
 }
