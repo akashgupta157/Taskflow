@@ -58,11 +58,11 @@ export default function TaskList({ projects }) {
           </SelectContent>
         </Select>
       </div>
-      {loading && (
+{/*       {loading && (
         <div className="flex items-center justify-center min-h-[50vh]">
           <p className="text-gray-500">Loading...</p>
         </div>
-      )}
+      )} */}
       {tasks.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {tasks.map((task, index) => (
